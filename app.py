@@ -116,9 +116,10 @@ col2.header(':flag-il: :rainbow[Puzzle Mind] :flag-il:', divider=True)
 col1, col2 = st.columns([1, 1])
 col1.subheader(' פאזל מיינד מציעה משחקי חשיבה מאתגרים המפתחים יכולות קוגנטיביות ומחזקים את הזיכרון. המשחקים מציעים מגוון רחב של אתגרים המותאמים לכל הרמות והגילים.')
 col2.image("mankhe.png")
-col1.write('ליצירת קשר אנא צרף אימייל')
+
 col3, col4 = st.columns([1, 4])
 receiver = col4.text_input(' ', label_visibility='collapsed')
+col3.write('ליצירת קשר אנא צרף אימייל')
 send_button = col3.button('שלח!', use_container_width=True, type='primary')
 if send_button:
     msg = send_email(receiver)

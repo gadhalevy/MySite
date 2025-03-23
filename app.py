@@ -112,7 +112,7 @@ def fill_container(pic, wrt1, wrt2, wrt3, mrkdn, img, txt1, txt2, txt3, txt4, co
 
 
 to_hebrew()
-set_bg("https://iris-bs.co.il/wp-content/uploads/2021/01/100111.jpg")
+# set_bg("https://iris-bs.co.il/wp-content/uploads/2021/01/100111.jpg")
 col1, col2, col3 = st.columns([1.32, 2, 1.32])
 col2.header(':flag-il: :rainbow[Puzzle Mind] :flag-il:', divider=True)
 col1, col2 = st.columns([1, 1])

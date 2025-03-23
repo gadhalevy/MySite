@@ -112,16 +112,18 @@ def fill_container(pic, wrt1, wrt2, wrt3, mrkdn, img, txt1, txt2, txt3, txt4, co
 
 
 to_hebrew()
+# Disable for phones.
 # set_bg("https://iris-bs.co.il/wp-content/uploads/2021/01/100111.jpg")
 col1, col2, col3 = st.columns([1.32, 2, 1.32])
 col2.header(':flag-il: :rainbow[Puzzle Mind] :flag-il:', divider=True)
 col1, col2 = st.columns([1, 1])
 col1.subheader(' פאזל מיינד מציעה משחקי חשיבה מאתגרים המפתחים יכולות קוגנטיביות ומחזקים את הזיכרון. המשחקים מציעים מגוון רחב של אתגרים המותאמים לכל הרמות והגילים.')
 col2.image("assets/images/mankhe.png")
-col1.write('ליצירת קשר אנא צרף אימייל')
+# col1.write('ליצירת קשר אנא צרף אימייל')
 col3, col4 = st.columns([1, 4])
 # receiver = col4.text_input(' ', label_visibility='collapsed')
 # receiver=col4.markdown(f'<input type="text" style="background-color:coral"/input>',unsafe_allow_html=True)
+# txt='ליצירת קשר אנא צרף אימייל'
 with col4:
     with stylable_container(
     key="email",
@@ -131,7 +133,7 @@ with col4:
         background-color:coral;
         }
     ''',):
-        receiver=st.text_input(' ', label_visibility='collapsed')
+        receiver=st.text_input(label='stam',placeholder='ליצירת קשר אנא צרף אימייל', label_visibility='collapsed')
 send_button = col3.button('שלח!', use_container_width=True, type='primary')
 if send_button:
     msg = send_email(receiver)

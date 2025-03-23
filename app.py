@@ -130,7 +130,7 @@ with col4:
     css_styles='''
     input{
         type:text;
-        background-color:coral;
+        background-color:green;
         color: black;
         }
     ''',):

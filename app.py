@@ -125,15 +125,15 @@ col3, col4 = st.columns([1, 4])
 # receiver=col4.markdown(f'<input type="text" style="background-color:coral"/input>',unsafe_allow_html=True)
 # txt='ליצירת קשר אנא צרף אימייל'
 with col4:
-    with stylable_container(
-    key="email",
-    css_styles='''
-    input{
-        type:text;
-        background-color:darkgreen;
-        color:white;
-        }
-    ''',):
+    # with stylable_container(
+    # key="email",
+    # css_styles='''
+    # input{
+    #     type:text;
+    #     background-color:darkgreen;
+    #     color:white;
+    #     }
+    # ''',):
         receiver=st.text_input(label='stam',placeholder='ליצירת קשר אנא צרף אימייל', label_visibility='collapsed')
 send_button = col3.button('שלח!', use_container_width=True, type='primary')
 if send_button:

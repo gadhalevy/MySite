@@ -131,6 +131,7 @@ with col4:
     input{
         type:text;
         background-color:coral;
+        color: black;
         }
     ''',):
         receiver=st.text_input(label='stam',placeholder='ליצירת קשר אנא צרף אימייל', label_visibility='collapsed')

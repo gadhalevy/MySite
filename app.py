@@ -117,7 +117,7 @@ to_hebrew()
 col1, col2, col3 = st.columns([1.32, 2, 1.32])
 col2.header(':flag-il: :rainbow[Puzzle Mind] :flag-il:', divider=True)
 col1, col2 = st.columns([1, 1])
-col1.subheader(' פאזל מיינד מציעה משחקי חשיבה מאתגרים המפתחים יכולות קוגנטיביות ומחזקים את הזיכרון. המשחקים מציעים מגוון רחב של אתגרים המותאמים לכל הרמות והגילים.')
+col1.subheader(' פאזל מיינד מציעה הנחיית משחקי חשיבה מאתגרים המפתחים יכולות קוגנטיביות ומחזקים את הזיכרון. ההנחייה מיועדת לקבוצות ולארועים. המשחקים מציעים מגוון רחב של אתגרים המותאמים לכל הרמות והגילים.')
 col2.image("assets/images/mankhe.png")
 # col1.write('ליצירת קשר אנא צרף אימייל')
 col3, col4 = st.columns([1, 4])
@@ -130,8 +130,7 @@ with col4:
     # css_styles='''
     # input{
     #     type:text;
-    #     background-color:darkgreen;
-    #     color:white;
+    #     background-color:coral;
     #     }
     # ''',):
         receiver=st.text_input(label='stam',placeholder='ליצירת קשר אנא צרף אימייל', label_visibility='collapsed')
@@ -141,7 +140,7 @@ if send_button:
     st.success(msg)
 col1, col2, col3 = st.columns([1, 1, 1])
 txt = 'למה לבחור בנו?'
-st.markdown(f'<div style="direction:rtl;font-size:1em;font-weight:bold;text-align: center;">{txt}</div>',
+st.markdown(f'<div style="direction:rtl;font-size:1.5em;font-weight:bold;text-align: center;">{txt}</div>',
             unsafe_allow_html=True)
 col1, col2, col3 = st.columns([1, 1, 1])
 txt11 = 'הנאה צרופה'
@@ -168,7 +167,10 @@ txt2 = ''
 txt4 = 'מגוון רחב של משחקים חברתיים המשלבים איסטרטגיה יצירתיות ואינטרקציה חברתית.'
 fill_container(c3_pic, c3_wrt1, c3_wrt2, c3_wrt3, c3_mrkdn1, img, txt13, txt2, txt3, txt4, 'greenyellow')
 col1, col2, col3 = st.columns([2, 1, 2])
-col2.write('מה יש לנו להציע?')
+txt='מה יש לנו להציע?'
+st.markdown(f'<div style="direction:rtl;font-size:1.5em;font-weight:bold;text-align: center;">{txt}</div>',
+            unsafe_allow_html=True)
+# col2.write('**מה יש לנו להציע?**')
 col1, col2, col3 = st.columns([2, 3, 2])
 options = ['תשבץ הגיון', 'זיהוי דמות', 'זיהוי מקום']
 res = col2.segmented_control('המשחקים שלנו', options=options)

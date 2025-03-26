@@ -45,18 +45,51 @@ def set_bg(url):
 
 
 def send_email(receiver, files=None):
-    port_number = 587
-    msg = MIMEMultipart()
-    msg['From'] = 'puzzlemind.il@protonmail.com'
-    msg['To'] = receiver
-    msg['Subject'] = 'PuzzleMind '
-    message = 'צורפת לרשימת התפוצה של PuzzleMind'
-    msg.attach(MIMEText(message))
-    mailserver = smtplib.SMTP('localhost', port_number)
-    mailserver.login("puzzlemind.il@protonmail.com", password=st.secrets['password'])
-    mailserver.sendmail('puzzlemind.il@protonmail.com', receiver, msg.as_string())
-    mailserver.quit()
-    return message
+    '''
+    Send email via khanuka1912 password or help files,
+    :param receiver:
+    :param files:
+    :return:
+    '''
+    # with open('passtxt.txt') as f:
+    #     password = f.read()
+
+    password=st.secrets.password
+    sender = 'khanuka1912@gmail.com'
+    body = "צורפת לרשימת התפוצה של Puzzle Mind"
+    # Create a multipart message and set headers
+    message = MIMEMultipart()
+    message["From"] = sender
+    message["To"] = receiver
+    message["Subject"] = 'Puzzle Mind'
+    message["Bcc"] = receiver  # Recommended for mass emails
+    # Add body to email
+    message.attach(MIMEText(body, "plain", "utf-8"))
+    if files:
+        for i, filename in enumerate(files):
+            # Open PDF file in binary mode
+            with open(filename, "rb") as attachment:
+                # Add file as application/octet-stream
+                part = MIMEBase("application", "octet-stream")
+                # Email client can usually download this automatically as attachment
+                part.set_payload(attachment.read())
+            # Encode file in ASCII characters to send by email
+            encoders.encode_base64(part)
+            # Add header as key/value pair to attachment part
+            part.add_header(
+                f"Content-Disposition",
+                f"attachment; filename= {filename}",
+            )
+            # Add attachment to message and convert message to string
+            message.attach(part)
+    text = message.as_string()
+    # Log in to server using secure context and send email
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+        server.login(sender, password)
+        server.sendmail(sender, receiver, text)
+    return body
+
 
 def setup_container(col):
     with col:

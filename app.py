@@ -115,7 +115,7 @@ to_hebrew()
 # Disable for phones.
 # set_bg("https://iris-bs.co.il/wp-content/uploads/2021/01/100111.jpg")
 col1, col2, col3 = st.columns([1.32, 2, 1.32])
-col2.header(':israel: :rainbow[Puzzle Mind] :israel: \n טלפון: 054-7577956', divider=True)
+col2.header(':israel: :rainbow[Puzzle Mind] :israel: \n טלפון סלולרי להתקשרות: 054-7577956', divider=True)
 # col2.header(':israel: :rainbow[Puzzle Mind] :israel:')
 # col2.header('טלפון: 054-7577956', divider=True)
 col1, col2 = st.columns([1, 1])
